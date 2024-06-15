@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ChemConvert Home</title>
+    <link rel="stylesheet" type="text/css" href=../static/css/style.css>
+    <link rel="stylesheet" href=../static/font-awesome/css/font-awesome.min.css>
+</head>
+<body>
+    <div class="container">
+        <h1>ChemConvert Home</h1>
+        <hr>
+        <div class="conversion-section">
+            <nav>
+                <ul>
+                    <li><a href="#datas"><i class="fa fa-database" aria-hidden="true"></i></a></li>
+                    <br>
+                    <li><a href="#draw"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                    <br>
+                    <li><a href="#docs"><i class="fa fa-book" aria-hidden="true"></i></a></li>
+                </ul>
+            </nav>
+            <div class="smiles-section" id="datas">
+                <!-- Part to define SMILES -->
+                <div class="title">
+                    <h2>From SMILES</h2>
+                </div>
+                <hr>
+                <form id="form-smiles" enctype="application/x-www-form-urlencoded">
+                    <input type="text" class="smiles-input" id="SMILES-input" name="SMILES-input" placeholder="SMILES notation">
+                    <hr>
+                    <!-- Define part where user can go from a notation to another -->
+                    <h3>Conversion Into:</h3>
+                    <div id="Smiles-conversion" class="conversion">
+                        <ul>
+                            <li>
+                                <input type="checkbox" id="SMILES-to-MolFile" class="my-radio-button" name="SMILES-to-MolFile" value="true">
+                                <label for="SMILES-to-MolFile">Mol text</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="SMILES-to-representation" class="my-radio-button" name="SMILES-to-representation" value="true">
+                                <label for="SMILES-to-representation">Molecular representation</label>
+                            </li>
+                        </ul>
+                        <div id="representation-from-SMILES"></div>
+                    </div>
+                    <hr>
+                    <!-- Get infos on the given notation -->
+                    <h3>Get Infos on:</h3>
+                    <div id="Smiles-infos" class="get-infos">
+                        <ul>
+                            <li>
+                                <input type="checkbox" id="Molecular-formula" class="my-radio-button" name="Molecular-formula" value="true">
+                                <label for="Molecular-formula">Print the molecular formula</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="Molecular-weight" class="my-radio-button" name="Molecular-weight" value="true">
+                                <label for="Molecular-weight">Print the molecular weight</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <input type="submit" id="submit-conversion-smiles" value="Submit" class="submit">
+                </form>
+                <div id="results-smiles" class="results-smiles">
+                    <h3>Results:</h3>
+                </div>
+            </div>
+            <!-- Part to define MOL files -->
+            <div id="file" class="mol-file-section">
+                <div class="title">
+                    <h2>From Mol file</h2>
+                </div>
+                <hr>
+                <form id="form-mol" enctype="multipart/form-data">
+                    <input type="file" class="mol-input" id="Molfile-input" name="file">
+                    <hr>
+                    <!-- Define part where user can go from a notation to another -->
+                    <h3>Conversion Into:</h3>
+                    <div id="Mol-conversion" class="conversion">
+                        <ul>
+                            <li>
+                                <input type="checkbox" id="Molfile-to-Smiles" class="my-radio-button1" name="Molfile-to-Smiles" value="true">
+                                <label for="Molfile-to-Smiles">SMILES</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="Molfile-to-representation" class="my-radio-button2" name="Molfile-to-representation" value="true">
+                                <label for="Molfile-to-representation">Molecular representation</label>
+                            </li>
+                        </ul>
+                        <div id="representation-from-mol"></div>
+                    </div>
+                    <hr>
+                    <!-- Get infos on the given notation -->
+                    <h3>Get Infos on:</h3>
+                    <div id="Mol-infos" class="get-infos">
+                        <p>Count the number of a given atom in the molecule</p>
+                        <input type="text" id="count-atom" name="count-atom" class="text-input" placeholder="Atom identifiers">
+                        <br>
+                        <p>Compute the topological distance between 2 atoms</p>
+                        <input type="text" id="2D-distance1" name="2D-distance1" class="text-input" placeholder="The first identifiers">
+                        <input type="text" id="2D-distance2" name="2D-distance2" class="text-input" placeholder="The second identifiers">
+                        <br>
+                        <p>Compute the 3D distance between 2 atoms</p>
+                        <input type="text" id="3D-distance1" name="3D-distance1" class="text-input" placeholder="The first identifiers">
+                        <input type="text" id="3D-distance2" name="3D-distance2" class="text-input" placeholder="The second identifiers">
+                        <br>
+                        <p>Get the neighbours of a given atom identifiers</p>
+                        <input type="text" id="atom-neighbours" name="atom-neighbours" class="text-input" placeholder="Atom identifiers">
+                        <br>
+                        <input type="checkbox" id="Is-ring" class="my-radio-button" name="Is-ring" value="true">
+                        <label for="Is-ring">Search if there is a ring in the molecule</label>
+                        <br>
+                    </div>
+                    <input type="submit" id="submit-mol" value="Submit" class="submit">
+                </form>
+                <div id="results-mol" class="results-mol">
+                    <h3>Results:</h3>
+                </div>
+            </div>
+        </div>
+        <!-- Part to define the drawing interface -->
+        <div class="footer">
+            <div class="JSME-section" id="draw">
+                <h2>From Molecular structure</h2>
+                <div id="jsme_container">
+                    <!--You have to enable JavaScript in your browser to use JSME!-->
+                </div>
+                <button type="button" onclick="alert(jsmeApplet.smiles())">Show SMILES</button>
+            </div>
+            <div class="documentation" id="docs">
+                <h2>About the App:</h2>
+                <ul>
+                    <li><p>The program only take in input the following organic atoms: <b>H, B, C, N, O, P, S, F, Cl, Br, I</b></p></li>
+                    <li><p>The <b>SMILES</b> given can include all the symbols used in the notation <i>(i.e. =, #, (, ), [, ], :, "small caps for cycle", \, /, @, @@, +, -)</i></p></li>
+                    <li><p>The file given in input must be a <b>mol file</b><i> (i.e. aspirine.mol)</i></p></li>
+                    <li><p><b>'Atom identifier'</b> is a number given to a certain atom in a given molecule (refer to the mol file)</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Load script of javascript at the end to let the HMTL charge fully in the browser -->
+    <script src=../static/JSME/jsme/jsme.nocache.js></script>
+    <script src=../static/js/script.js></script>
+    <script>
+        //this function will be called after the JavaScriptApplet code has been loaded.
+           function jsmeOnLoad() {
+               jsmeApplet = new JSApplet.JSME("jsme_container", "380px", "340px");
+          }
+       </script>
+</body>
+</html>
+
+
+</html>

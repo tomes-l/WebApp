@@ -1,0 +1,164 @@
+body {
+	background-color: #f0f0f0; /* couleur de fond */
+	font-family: Arial, sans-serif;
+}
+
+.container {
+	width: 95%; /* largeur du conteneur */
+	margin: 40px auto; /* marge et centrage */
+	padding: 0px 20px 20px 20px; /* padding intérieur */
+	background-color: #fff; /* couleur de fond du conteneur */
+	border: 1px solid #ddd; /* bordure */
+	border-radius: 10px; /* arrondi des coins */
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* ombre portée */
+}
+
+h1, h2{
+	color: #333; 
+	margin-bottom: 10px;
+}
+
+li.conversion-section{
+    list-style-type: none;
+    padding-left: 5px;
+    text-align: left;
+}
+
+a{
+	display: block;
+}
+
+.conversion-section {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 20px;
+}
+
+nav{
+	width: 5%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	background-color:#f0f0f0;
+	border-radius: 10px; 
+}
+
+i{
+	color: black;
+}
+
+.smiles-section{
+	width: 48%;
+	background-color: #f0f0f0;
+	margin: 5px 5px 5px 11px; /* marge et centrage */
+	padding: 20px; /* padding intérieur */
+	border-radius: 10px; /* arrondi des coins */
+}
+
+.mol-file-section{
+	width: 46%;
+	background-color: #f0f0f0;
+	margin: 5px; /* marge et centrage */
+	padding: 20px; /* padding intérieur */
+	border-radius: 10px; /* arrondi des coins */
+}
+
+.title{
+	text-align: center;
+	padding: 5px;
+	font-size: 25;
+}
+
+.smiles-input{
+	padding: 10px;
+	border-radius: 10px;
+	margin: 20px; 
+	box-sizing: border-box;
+    /* Centering the input itself */
+    margin: 0 auto;
+}
+
+.mol-input{
+	padding: 10px;
+	border-radius: 10px;
+	margin: 20px; 
+	box-sizing: border-box;
+    /* Centering the input itself */
+    margin: 0 auto;
+}
+
+input{
+	padding: 10px;
+	border-radius: 10px;
+	margin: 10px; 
+}
+
+.title{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		width: 100%;
+}
+
+.my-radio-button {
+    background-color: #ccc; 
+    color: #333; /* couleur des radios buttons */
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-container{
+	place-content: center;
+}
+
+.submit {
+	background-color: #4CAF50; /* couleur de fond */
+	color: #ffffff; /* couleur du texte */
+	width: 20%;
+	padding: 10px 20px; /* espace entre le texte et les bordures */
+	border: none; /* pas de bordure */
+	border-radius: 20px; /* arrondi des coins */
+	cursor: pointer; /* curseur en forme de main */
+}
+
+.results-smiles{
+	background-color: white;
+	border-radius: 20px;
+}
+
+img{
+	margin-left: 20px;
+}
+
+.results-mol{
+	background-color: white;
+	border-radius: 20px;
+}
+
+.footer{
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 20px;
+	width: 97.5%;
+	background-color: #f0f0f0;
+	margin: 5px; /* marge et centrage */
+	padding: 20px; /* padding intérieur */
+	border-radius: 10px; /* arrondi des coins */
+}
+
+.JSME-section{
+	align-items: center;
+	margin-left: 30px; 
+	margin-right: 150px;
+}
+
+.documentation{
+	width: 70%;
+	background-color: #f0f0f0;
+	margin: 5px; /* marge et centrage */
+	padding: 10px; /* padding intérieur */
+	border-radius: 20px; /* arrondi des coins */
+	border: 10px solid #4CAF50;
+}

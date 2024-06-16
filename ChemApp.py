@@ -58,7 +58,7 @@ def mol_algo(dict_commandes_values):
         dict_return_value['error'] = 'No file provided'
         return dict_return_value
     else:
-        mol_str = dict_commandes_values['file']
+        mol_str = dict_commandes_values['file'].replace('\r', '')
         molecule.load_file(mol_str)
         molecule.initialize_variables()
         molecule.build_graph()
@@ -75,6 +75,7 @@ def mol_algo(dict_commandes_values):
     
     if dict_commandes_values.get('SMILES'):
         SMILES = molecule.to_smiles()
+        print("SMILES:", SMILES)
         dict_return_value['smiles'] = SMILES
 
     if dict_commandes_values.get('img'):

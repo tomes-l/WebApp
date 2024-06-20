@@ -40,7 +40,7 @@ C3H7O
   M  END
   §§§§
 
-  Exemple qui va impliquer une erreur:
+  Exemple that will bring an error:
 
      RDKit          3D
 

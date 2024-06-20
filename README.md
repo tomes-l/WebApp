@@ -1,6 +1,6 @@
 Hello there!
 
-A provide here a quick sumary for you to be able to fully understand the architecture of the SaaS if you're not friendly with web developpement and even, add some features to the existing project.
+I provide here a quick sumary for you to be able to fully understand the architecture of the SaaS if you're not friendly with web developpement and even, add some features to the existing project.
 
 The web application is handle by the flask micro-framework, available as a python libraries which provides, the direction for the index.html and handle the HTTPs requests send by the fetch API method define in Js.
 

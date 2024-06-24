@@ -46,6 +46,7 @@ class Molecule:
         line_one = bool(re.match("[A-Z][a-z]?[0-9]*",str(self.line_in_file[0].split()[0])))
         if line_one == False or len(self.line_in_file) <= 4:
             return False
+        print(self.line_in_file)
         
     def initialize_variables(self):
         """initialize_variables: self

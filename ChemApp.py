@@ -4,6 +4,7 @@ from rdkit import Chem
 from rdkit.Chem import Descriptors
 from rdkit.Chem.rdMolDescriptors import CalcMolFormula
 from rdkit.Chem import Draw
+from rdkit.Chem import AllChem
 import base64
 from io import BytesIO
 
@@ -27,9 +28,14 @@ def SMILES_algo(dict_commandes_values):
     else:
         smiles_string = dict_commandes_values['SMILES']
         mol = Chem.MolFromSmiles(smiles_string)
+        MolecularFormula = CalcMolFormula(mol)
 
         if dict_commandes_values.get('mol'):
-            dict_return_value['mol'] = Chem.MolToMolBlock(mol)
+            threeD = Chem.AddHs(mol)
+            params = AllChem.ETKDGv3()
+            AllChem.EmbedMolecule(threeD, params)
+            threeD.SetProp("_Name", MolecularFormula)
+            dict_return_value['mol'] = Chem.MolToMolBlock(threeD)
 
         if dict_commandes_values.get('img'):
             representation = Chem.MolFromSmiles(smiles_string)
@@ -42,7 +48,7 @@ def SMILES_algo(dict_commandes_values):
             dict_return_value['img'] = img_str
         
         if dict_commandes_values.get('mformula'):
-            dict_return_value['mformula'] = CalcMolFormula(mol)
+            dict_return_value['mformula'] = MolecularFormula
 
         if dict_commandes_values.get('mweight'):
             dict_return_value['mweight'] = Descriptors.ExactMolWt(mol)
@@ -73,8 +79,8 @@ def mol_algo(dict_commandes_values):
             dict_return_value['error'] = 'File could not be loaded, contains non-organic elements'
             return dict_return_value
     
+    SMILES = molecule.to_smiles()
     if dict_commandes_values.get('SMILES'):
-        SMILES = molecule.to_smiles()
         print("SMILES:", SMILES)
         dict_return_value['smiles'] = SMILES
 
